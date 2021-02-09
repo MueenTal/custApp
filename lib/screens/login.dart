@@ -12,6 +12,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
+  bool load = false;
 
   @override
   Widget build(BuildContext context) {
@@ -211,6 +212,9 @@ class _LoginState extends State<Login> {
                                             fontSize: 16.0);
                                       } else {
                                         try {
+                                          setState(() {
+                                            load = true;
+                                          });
                                           UserCredential userCredential =
                                               await FirebaseAuth.instance
                                                   .signInWithEmailAndPassword(
@@ -230,6 +234,9 @@ class _LoginState extends State<Login> {
                                                 textColor: Colors.white,
                                                 fontSize: 16.0);
                                             FirebaseAuth.instance.signOut();
+                                            setState(() {
+                                              load = false;
+                                            });
                                           } else {
                                             Fluttertoast.showToast(
                                                 msg: "تم تسجيل الدخول بنجاح",
@@ -245,8 +252,14 @@ class _LoginState extends State<Login> {
                                                         builder: (BuildContext
                                                                 context) =>
                                                             HomeScreen()));
+                                            setState(() {
+                                              load = false;
+                                            });
                                           }
                                         } catch (e) {
+                                          setState(() {
+                                            load = false;
+                                          });
                                           print(e);
 
                                           if (e
@@ -307,6 +320,15 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
+              load
+                  ? Center(
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        child: CircularProgressIndicator(),
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ))));

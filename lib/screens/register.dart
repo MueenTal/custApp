@@ -38,8 +38,7 @@ class _RegisterState extends State<Register> {
               ),
               ListView(
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height,
+                  Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
