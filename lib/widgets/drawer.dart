@@ -58,7 +58,7 @@ class _DrawerrState extends State<Drawerr> {
                         backgroundColor: Colors.green,
                         textColor: Colors.white,
                         fontSize: 16.0);
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (BuildContext context) => HomeScreen()));
                   }
                 : () {

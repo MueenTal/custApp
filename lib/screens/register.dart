@@ -38,325 +38,320 @@ class _RegisterState extends State<Register> {
               ),
               ListView(
                 children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        Text(
-                          "التسجيل ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Text(
+                        "التسجيل ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              controller: _name,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال الاسم الخاص بك  ',
-                                labelText: 'الاسم',
-                                prefixIcon: Icon(Icons.person),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            controller: _name,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال الاسم الخاص بك  ',
+                              labelText: 'الاسم',
+                              prefixIcon: Icon(Icons.person),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            keyboardType: TextInputType.number,
+                            controller: _phone,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال رقم الهاتف الخاص بك  ',
+                              labelText: 'رقم الهاتف',
+                              prefixIcon: Icon(Icons.phone),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            controller: _email,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال الايميل الخاص بك',
+                              labelText: 'الايميل',
+                              prefixIcon: Icon(Icons.email),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            controller: _password,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال كلمة المرور',
+                              labelText: 'كلمة المرور',
+                              prefixIcon: Icon(Icons.vpn_key),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            controller: _password2,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال تاكيد كلمة المرور',
+                              labelText: 'تاكيد كلمة المرور',
+                              prefixIcon: Icon(Icons.vpn_key),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                            controller: _address,
+                            decoration: InputDecoration(
+                              hintText: 'الرجاء ادخال العنوان  الخاص بك  ',
+                              labelText: 'العنوان',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.lightBlue, width: 3),
+                                borderRadius: BorderRadius.circular((25)),
+                              ),
+                            )),
+                      ),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8.0, right: 8, bottom: 8),
+                              child: Container(
+                                height: 50,
+                                width: MediaQuery.of(context).size.width / 2.5,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(15.0),
+                                        bottomRight: Radius.circular(15.0)),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.blue[300],
+                                          Colors.blue[300],
+                                        ])),
+                                child: FlatButton(
+                                  child: Text(
+                                    " تسجيل الدخول  ",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 18),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                Login()));
+                                  },
                                 ),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              keyboardType: TextInputType.number,
-                              controller: _phone,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال رقم الهاتف الخاص بك  ',
-                                labelText: 'رقم الهاتف',
-                                prefixIcon: Icon(Icons.phone),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, left: 8, bottom: 8),
+                              child: Container(
+                                height: 50,
+                                width: MediaQuery.of(context).size.width / 2.5,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(15.0),
+                                        bottomLeft: Radius.circular(15.0)),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.blue[100],
+                                          Colors.blue[100],
+                                        ])),
+                                child: FlatButton(
+                                  child: Text(
+                                    " تسجيل  ",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 18),
+                                  ),
+                                  onPressed: null,
                                 ),
-                              )),
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              controller: _email,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال الايميل الخاص بك',
-                                labelText: 'الايميل',
-                                prefixIcon: Icon(Icons.email),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width / 1.5,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.red,
+                                      Colors.red,
+                                    ])),
+                            child: FlatButton(
+                                splashColor: Colors.blueAccent,
+                                child: Text(
+                                  "سجل ",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              controller: _password,
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال كلمة المرور',
-                                labelText: 'كلمة المرور',
-                                prefixIcon: Icon(Icons.vpn_key),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
-                                ),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              controller: _password2,
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال تاكيد كلمة المرور',
-                                labelText: 'تاكيد كلمة المرور',
-                                prefixIcon: Icon(Icons.vpn_key),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
-                                ),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: TextField(
-                              keyboardType: TextInputType.number,
-                              controller: _address,
-                              decoration: InputDecoration(
-                                hintText: 'الرجاء ادخال العنوان  الخاص بك  ',
-                                labelText: 'العنوان',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.lightBlue, width: 3),
-                                  borderRadius: BorderRadius.circular((25)),
-                                ),
-                              )),
-                        ),
-                        Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 8.0, right: 8, bottom: 8),
-                                child: Container(
-                                  height: 50,
-                                  width:
-                                      MediaQuery.of(context).size.width / 2.5,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(15.0),
-                                          bottomRight: Radius.circular(15.0)),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            Colors.blue[300],
-                                            Colors.blue[300],
-                                          ])),
-                                  child: FlatButton(
-                                    child: Text(
-                                      " تسجيل الدخول  ",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                    ),
-                                    onPressed: () {
+                                onPressed: () async {
+                                  if (_email.text.isEmpty ||
+                                      _password.text.isEmpty ||
+                                      _name.text.isEmpty ||
+                                      _password2.text.isEmpty ||
+                                      _address.text.isEmpty ||
+                                      _phone.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                        msg: "يجب عليك ادخال جميع المطاليب  ",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Colors.red,
+                                        textColor: Colors.white,
+                                        fontSize: 16.0);
+                                  } else if (_password.text !=
+                                      _password2.text) {
+                                    Fluttertoast.showToast(
+                                        msg: "كلمة المرور غير متطابقة",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Colors.red,
+                                        textColor: Colors.white,
+                                        fontSize: 16.0);
+                                  } else {
+                                    try {
+                                      setState(() {
+                                        load = true;
+                                      });
+                                      UserCredential userCredential =
+                                          await FirebaseAuth.instance
+                                              .createUserWithEmailAndPassword(
+                                                  email: _email.text,
+                                                  password: _password.text);
+                                      await userCredential.user
+                                          .sendEmailVerification();
+                                      await FirebaseFirestore.instance
+                                          .collection('users')
+                                          .doc(userCredential.user.uid)
+                                          .set(({
+                                            'name': _name.text,
+                                            'email': _email.text,
+                                            'phone': _phone.text,
+                                            'address': _address.text,
+                                            'userId': userCredential.user.uid
+                                          }));
+
+                                      Fluttertoast.showToast(
+                                          msg:
+                                              "يرجى تاكيد حسابك , تحقق من علبة البريد الالكتروني",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.BOTTOM,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0);
+
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
                                                   Login()));
-                                    },
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 8, left: 8, bottom: 8),
-                                child: Container(
-                                  height: 50,
-                                  width:
-                                      MediaQuery.of(context).size.width / 2.5,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(15.0),
-                                          bottomLeft: Radius.circular(15.0)),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            Colors.blue[100],
-                                            Colors.blue[100],
-                                          ])),
-                                  child: FlatButton(
-                                    child: Text(
-                                      " تسجيل  ",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                    ),
-                                    onPressed: null,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 50,
-                              width: MediaQuery.of(context).size.width / 1.5,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.red,
-                                        Colors.red,
-                                      ])),
-                              child: FlatButton(
-                                  splashColor: Colors.blueAccent,
-                                  child: Text(
-                                    "سجل ",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  onPressed: () async {
-                                    if (_email.text.isEmpty ||
-                                        _password.text.isEmpty ||
-                                        _name.text.isEmpty ||
-                                        _password2.text.isEmpty ||
-                                        _address.text.isEmpty ||
-                                        _phone.text.isEmpty) {
-                                      Fluttertoast.showToast(
-                                          msg: "يجب عليك ادخال جميع المطاليب  ",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    } else if (_password.text !=
-                                        _password2.text) {
-                                      Fluttertoast.showToast(
-                                          msg: "كلمة المرور غير متطابقة",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    } else {
-                                      try {
-                                        setState(() {
-                                          load = true;
-                                        });
-                                        UserCredential userCredential =
-                                            await FirebaseAuth.instance
-                                                .createUserWithEmailAndPassword(
-                                                    email: _email.text,
-                                                    password: _password.text);
-                                        await userCredential.user
-                                            .sendEmailVerification();
-                                        await FirebaseFirestore.instance
-                                            .collection('users')
-                                            .doc(userCredential.user.uid)
-                                            .set(({
-                                              'name': _name.text,
-                                              'email': _email.text,
-                                              'phone': _phone.text,
-                                              'address': _address.text,
-                                              'userId': userCredential.user.uid
-                                            }));
 
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        Login()));
+                                      setState(() {
+                                        load = false;
+                                      });
+                                    } catch (e) {
+                                      setState(() {
+                                        load = false;
+                                      });
+                                      print(e);
 
+                                      if (e
+                                          .toString()
+                                          .contains("invalid-email")) {
                                         Fluttertoast.showToast(
-                                            msg:
-                                                "يرجى تاكيد حسابك , تحقق من علبة البريد الالكتروني",
+                                            msg: "خطا في ادخال الايميل",
                                             toastLength: Toast.LENGTH_SHORT,
                                             gravity: ToastGravity.BOTTOM,
                                             timeInSecForIosWeb: 1,
                                             backgroundColor: Colors.red,
                                             textColor: Colors.white,
                                             fontSize: 16.0);
-                                        setState(() {
-                                          load = false;
-                                        });
-                                      } catch (e) {
-                                        setState(() {
-                                          load = false;
-                                        });
-                                        print(e);
-
-                                        if (e
-                                            .toString()
-                                            .contains("invalid-email")) {
-                                          Fluttertoast.showToast(
-                                              msg: "خطا في ادخال الايميل",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.red,
-                                              textColor: Colors.white,
-                                              fontSize: 16.0);
-                                        } else if (e
-                                            .toString()
-                                            .contains("weak-password")) {
-                                          Fluttertoast.showToast(
-                                              msg: "كلمة المرور ضعيفة",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.red,
-                                              textColor: Colors.white,
-                                              fontSize: 16.0);
-                                        } else if (e
-                                            .toString()
-                                            .contains("email-already-in-use")) {
-                                          Fluttertoast.showToast(
-                                              msg: "هذا الايميل مستخدم",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.red,
-                                              textColor: Colors.white,
-                                              fontSize: 16.0);
-                                        } else {
-                                          print("");
-                                        }
+                                      } else if (e
+                                          .toString()
+                                          .contains("weak-password")) {
+                                        Fluttertoast.showToast(
+                                            msg: "كلمة المرور ضعيفة",
+                                            toastLength: Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.BOTTOM,
+                                            timeInSecForIosWeb: 1,
+                                            backgroundColor: Colors.red,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0);
+                                      } else if (e
+                                          .toString()
+                                          .contains("email-already-in-use")) {
+                                        Fluttertoast.showToast(
+                                            msg: "هذا الايميل مستخدم",
+                                            toastLength: Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.BOTTOM,
+                                            timeInSecForIosWeb: 1,
+                                            backgroundColor: Colors.red,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0);
+                                      } else {
+                                        print("");
                                       }
                                     }
-                                  }),
-                            ))
-                      ],
-                    ),
+                                  }
+                                }),
+                          ))
+                    ],
                   ),
                 ],
               ),
