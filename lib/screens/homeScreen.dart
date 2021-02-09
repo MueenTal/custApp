@@ -2,6 +2,7 @@ import 'package:custApp/widgets/drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,7 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             actions: [
               IconButton(
-                  icon: Icon(Icons.shopping_cart_outlined), onPressed: () {})
+                  icon: Icon(Icons.shopping_cart_outlined),
+                  onPressed: userIsLogned
+                      ? () {}
+                      : () {
+                          Fluttertoast.showToast(
+                              msg: "يجب عليك تسجيل الدخول أولا",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        })
             ],
           ),
         ),

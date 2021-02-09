@@ -48,8 +48,8 @@ class _DrawerrState extends State<Drawerr> {
             widget.userIsLogned ? Icons.logout : Icons.login,
             widget.userIsLogned ? "تسجيل الخروج" : "تسجيل الدخول",
             widget.userIsLogned
-                ? () {
-                    FirebaseAuth.instance.signOut();
+                ? () async {
+                    await FirebaseAuth.instance.signOut();
                     Fluttertoast.showToast(
                         msg: "تم تسجيل الخروج بنجاح",
                         toastLength: Toast.LENGTH_SHORT,
