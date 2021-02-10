@@ -223,8 +223,6 @@ class _LoginState extends State<Login> {
 
                                           if (!userCredential
                                               .user.emailVerified) {
-                                            await userCredential.user
-                                                .sendEmailVerification();
                                             Fluttertoast.showToast(
                                                 msg: "عذرا يجب تاكيد ايميلك ",
                                                 toastLength: Toast.LENGTH_SHORT,
@@ -295,21 +293,20 @@ class _LoginState extends State<Login> {
                                                 backgroundColor: Colors.red,
                                                 textColor: Colors.white,
                                                 fontSize: 16.0);
-                                          }
-                                          // else if (e
-                                          //     .toString()
-                                          //     .contains("too-many-requests")) {
-                                          //   Fluttertoast.showToast(
-                                          //       msg: "وحدوا الله شوي",
-                                          //       toastLength: Toast.LENGTH_SHORT,
-                                          //       gravity: ToastGravity.BOTTOM,
-                                          //       timeInSecForIosWeb: 1,
-                                          //       backgroundColor: Colors.red,
-                                          //       textColor: Colors.white,
-                                          //       fontSize: 16.0);
+                                          } else if (e
+                                              .toString()
+                                              .contains("too-many-requests")) {
+                                            Fluttertoast.showToast(
+                                                msg: "وحدوا الله شوي",
+                                                toastLength: Toast.LENGTH_SHORT,
+                                                gravity: ToastGravity.BOTTOM,
+                                                timeInSecForIosWeb: 1,
+                                                backgroundColor: Colors.red,
+                                                textColor: Colors.white,
+                                                fontSize: 16.0);
 
-                                          //   print("");
-                                          // }
+                                            print("");
+                                          }
                                         }
                                       }
                                     }),
