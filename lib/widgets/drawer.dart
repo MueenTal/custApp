@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Drawerr extends StatefulWidget {
+  // هاد المتغير لمعرفة اليوزر مسجل دخول او لا ويظهر بالدراور هل تسجيل الدخول او تسجيل الخروج
   final bool userIsLogned;
   Drawerr({this.userIsLogned});
   @override
@@ -44,6 +45,7 @@ class _DrawerrState extends State<Drawerr> {
                 )
               ],
             ))),
+        // اذا كان مسجل دخول سيظهر زر تسجيل الخروج والعكس
         CustomListTitle(
             widget.userIsLogned ? Icons.logout : Icons.login,
             widget.userIsLogned ? "تسجيل الخروج" : "تسجيل الدخول",

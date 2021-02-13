@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // دالة التحقق من ان المستخدم مسجل دخول ام لا
   bool userIsLogned = false;
   _chekUser() async {
     User user = FirebaseAuth.instance.currentUser;
@@ -44,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(color: Colors.white),
             ),
             actions: [
+              // ايقونة السلة الموجودة بالاعلى
               IconButton(
                   icon: Icon(Icons.shopping_cart_outlined),
                   onPressed: userIsLogned

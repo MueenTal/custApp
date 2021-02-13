@@ -11,6 +11,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  // بعد ثلاث ثواني من التشغيل سينتقل التطبيق للصفحة الاخرى
   _loadSlpash() async {
     // Time (splash)
     Timer(

@@ -10,6 +10,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  // المتغيرات الخاصة بالمدخلات من اليوزر
   TextEditingController _name = TextEditingController();
   TextEditingController _phone = TextEditingController();
 
@@ -30,6 +31,7 @@ class _RegisterState extends State<Register> {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: <Widget>[
+              // كود الصورة في الخلفية
               Image.asset(
                 "assets/images/background.png",
                 fit: BoxFit.cover,
@@ -240,6 +242,7 @@ class _RegisterState extends State<Register> {
                                   ),
                                 ),
                                 onPressed: () async {
+                                  // تحقق اذا كل الخانات فارغة ام لا
                                   if (_email.text.isEmpty ||
                                       _password.text.isEmpty ||
                                       _name.text.isEmpty ||
@@ -254,6 +257,7 @@ class _RegisterState extends State<Register> {
                                         backgroundColor: Colors.red,
                                         textColor: Colors.white,
                                         fontSize: 16.0);
+                                    // تحقق اذا كان تاكيد كلمة المرور متطابق ام لا
                                   } else if (_password.text !=
                                       _password2.text) {
                                     Fluttertoast.showToast(
@@ -269,13 +273,16 @@ class _RegisterState extends State<Register> {
                                       setState(() {
                                         load = true;
                                       });
+                                      // انشاء حساب بواسطة الايميل وكلمة المرور
                                       UserCredential userCredential =
                                           await FirebaseAuth.instance
                                               .createUserWithEmailAndPassword(
                                                   email: _email.text,
                                                   password: _password.text);
+                                      // ارسال تاكيد للايميل
                                       await userCredential.user
                                           .sendEmailVerification();
+                                      // انشاء صف بجدول اليوزر
                                       await FirebaseFirestore.instance
                                           .collection('users')
                                           .doc(userCredential.user.uid)
@@ -310,7 +317,7 @@ class _RegisterState extends State<Register> {
                                         load = false;
                                       });
                                       print(e);
-
+// في حال اكتشاف اخطاء من الفير بيز سيتم طباعة الخطا للمستخدم حسب الوارد من الباك اند
                                       if (e
                                           .toString()
                                           .contains("invalid-email")) {
@@ -355,6 +362,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ],
               ),
+              // لاظهار اشارة التحميل على الشاشة اثناء التسجيل
               load
                   ? Center(
                       child: Container(

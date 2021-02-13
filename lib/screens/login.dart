@@ -10,6 +10,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  // المتغيرات الخاصة بالايميل والباسوورد
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
   bool load = false;
@@ -215,12 +216,13 @@ class _LoginState extends State<Login> {
                                           setState(() {
                                             load = true;
                                           });
+                                          // تسجيل الدخول بواسطة الايميل وكلمة المرور
                                           UserCredential userCredential =
                                               await FirebaseAuth.instance
                                                   .signInWithEmailAndPassword(
                                                       email: _email.text,
                                                       password: _password.text);
-
+                                          // التحقق اذا كان كان الحساب تم تاكيده بالايميل
                                           if (!userCredential
                                               .user.emailVerified) {
                                             Fluttertoast.showToast(
@@ -236,6 +238,7 @@ class _LoginState extends State<Login> {
                                               load = false;
                                             });
                                           } else {
+                                            // الانتقال اللى الصفحة الاخرى في حال تم تسجيل الدخول بنجاح
                                             Fluttertoast.showToast(
                                                 msg: "تم تسجيل الدخول بنجاح",
                                                 toastLength: Toast.LENGTH_SHORT,
@@ -259,6 +262,7 @@ class _LoginState extends State<Login> {
                                             load = false;
                                           });
                                           print(e);
+// في حال اكتشاف اخطاء من الفير بيز سيتم طباعة الخطا للمستخدم حسب الوارد من الباك اند
 
                                           if (e
                                               .toString()
