@@ -171,7 +171,7 @@ class _DetailsState extends State<Details> {
                                                       Toast.LENGTH_SHORT,
                                                   gravity: ToastGravity.BOTTOM,
                                                   timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.red,
+                                                  backgroundColor: Colors.green,
                                                   textColor: Colors.white,
                                                   fontSize: 16.0);
                                             }
@@ -198,49 +198,50 @@ class _DetailsState extends State<Details> {
                                 height: 100,
                                 width: 100,
                                 child: IconButton(
-                                    icon: Icon(
-                                      Icons.add_shopping_cart_outlined,
-                                      color: Colors.yellow[700],
-                                      size: 50,
-                                    ),
-                                    onPressed: widget.userIsLogned
-                                        ? () async {
-                                            await FirebaseFirestore.instance
-                                                .collection('card')
-                                                .doc(widget.docId +
-                                                    FirebaseAuth.instance
-                                                        .currentUser.uid)
-                                                .set(({
-                                                  "docId": widget.docId,
-                                                  "name": widget.name,
-                                                  "userId": FirebaseAuth
-                                                      .instance.currentUser.uid,
-                                                  "image": widget.image,
-                                                  "price": widget.price * num,
-                                                  "num": num,
-                                                  "note": details,
-                                                  "confirm": false,
-                                                }));
-                                            Fluttertoast.showToast(
-                                                msg: "تم الاضافة الى السلة",
-                                                toastLength: Toast.LENGTH_SHORT,
-                                                gravity: ToastGravity.BOTTOM,
-                                                timeInSecForIosWeb: 1,
-                                                backgroundColor: Colors.red,
-                                                textColor: Colors.white,
-                                                fontSize: 16.0);
-                                          }
-                                        : () {
-                                            Fluttertoast.showToast(
-                                                msg:
-                                                    "يجب عليك تسجيل الدخول أولا",
-                                                toastLength: Toast.LENGTH_SHORT,
-                                                gravity: ToastGravity.BOTTOM,
-                                                timeInSecForIosWeb: 1,
-                                                backgroundColor: Colors.red,
-                                                textColor: Colors.white,
-                                                fontSize: 16.0);
-                                          }),
+                                  icon: Icon(
+                                    Icons.add_shopping_cart_outlined,
+                                    color: Colors.yellow[700],
+                                    size: 50,
+                                  ),
+                                  // onPressed: widget.userIsLogned
+                                  //     ? () async {
+                                  //         await FirebaseFirestore.instance
+                                  //             .collection('card')
+                                  //             .doc(widget.docId +
+                                  //                 FirebaseAuth.instance
+                                  //                     .currentUser.uid)
+                                  //             .set(({
+                                  //               "docId": widget.docId,
+                                  //               "name": widget.name,
+                                  //               "userId": FirebaseAuth
+                                  //                   .instance.currentUser.uid,
+                                  //               "image": widget.image,
+                                  //               "price": widget.price * num,
+                                  //               "num": num,
+                                  //               "note": details,
+                                  //               "confirm": false,
+                                  //             }));
+                                  //         Fluttertoast.showToast(
+                                  //             msg: "تم الاضافة الى السلة",
+                                  //             toastLength: Toast.LENGTH_SHORT,
+                                  //             gravity: ToastGravity.BOTTOM,
+                                  //             timeInSecForIosWeb: 1,
+                                  //             backgroundColor: Colors.green,
+                                  //             textColor: Colors.white,
+                                  //             fontSize: 16.0);
+                                  //       }
+                                  //     : () {
+                                  //         Fluttertoast.showToast(
+                                  //             msg:
+                                  //                 "يجب عليك تسجيل الدخول أولا",
+                                  //             toastLength: Toast.LENGTH_SHORT,
+                                  //             gravity: ToastGravity.BOTTOM,
+                                  //             timeInSecForIosWeb: 1,
+                                  //             backgroundColor: Colors.red,
+                                  //             textColor: Colors.white,
+                                  //             fontSize: 16.0);
+                                  //       }
+                                ),
                               ),
                               Text(
                                 "اضافة الى السلة",

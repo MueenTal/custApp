@@ -1,5 +1,6 @@
 import 'package:custApp/screens/homeScreen.dart';
 import 'package:custApp/screens/login.dart';
+import 'package:custApp/screens/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -45,7 +46,28 @@ class _DrawerrState extends State<Drawerr> {
                 )
               ],
             ))),
+
+        CustomListTitle(
+            Icons.person,
+            "الصفحة الشخصية",
+            widget.userIsLogned
+                ? () async {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Profile()));
+                  }
+                : () {
+                    Fluttertoast.showToast(
+                        msg: "يجب عليك تسجيل الدخول",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  }),
+
         // اذا كان مسجل دخول سيظهر زر تسجيل الخروج والعكس
+
         CustomListTitle(
             widget.userIsLogned ? Icons.logout : Icons.login,
             widget.userIsLogned ? "تسجيل الخروج" : "تسجيل الدخول",
@@ -67,6 +89,7 @@ class _DrawerrState extends State<Drawerr> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => Login()));
                   }),
+
         SizedBox(
           height: 50,
         ),
