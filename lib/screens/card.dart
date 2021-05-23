@@ -25,79 +25,37 @@ class _CardState extends State<CardScreen> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          body: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height / 2,
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection('card')
-                      .where('userId',
-                          isEqualTo: FirebaseAuth.instance.currentUser.uid)
-                      .where('confirm', isEqualTo: false)
-                      .snapshots(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong');
-                    }
+          body: Container(
+            child: StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('card')
+                  .where('userId',
+                      isEqualTo: FirebaseAuth.instance.currentUser.uid)
+                  .where('confirm', isEqualTo: false)
+                  .snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return Text('Something went wrong');
+                }
 
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                }
 
-                    return new ListView(
-                      children: snapshot.data.documents
-                          .map((DocumentSnapshot document) {
-                        return item(
-                            document.data()['name'],
-                            document.data()['image'],
-                            document.data()['price'],
-                            document.data()['num'],
-                            document.id);
-                      }).toList(),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 2,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: (MediaQuery.of(context).size.height / 2) - 150,
-                  //    color: Colors.grey[200],
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Row(children: [
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Text(
-                            "السعر الكلي : ",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            sum.toString() + " ل.س",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
-                          ),
-                        ])
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
+                return new ListView(
+                  children:
+                      snapshot.data.documents.map((DocumentSnapshot document) {
+                    return item(
+                        document.data()['name'],
+                        document.data()['image'],
+                        document.data()['price'],
+                        document.data()['num'],
+                        document.id);
+                  }).toList(),
+                );
+              },
+            ),
           ),
         ),
       ),
@@ -226,7 +184,37 @@ class _CardState extends State<CardScreen> {
                       backgroundColor: Colors.green,
                       textColor: Colors.white,
                       fontSize: 16.0);
-                })
+                }),
+            Spacer(),
+            InkWell(
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('card')
+                    .doc(id)
+                    .update({
+                  "confirm": true,
+                  "date": DateTime.now().toString().substring(0, 16),
+                });
+
+                Fluttertoast.showToast(
+                    msg: "تم تأكيد الوجبة ",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.green,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 50,
+                  width: 100,
+                  color: Colors.amber[200],
+                  child: Center(child: Text("تأكيد")),
+                ),
+              ),
+            )
           ],
         )
       ],
