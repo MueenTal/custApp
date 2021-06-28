@@ -27,6 +27,7 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+
   String address;
   String name;
   String phone;
@@ -47,6 +48,7 @@ class _DetailsState extends State<Details> {
   int num = 1;
   @override
   Widget build(BuildContext context) {
+
     widget.userIsLogned ? _getUserinformation() : null;
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -223,9 +225,10 @@ class _DetailsState extends State<Details> {
                                                       .toString()
                                                       .substring(0, 16),
                                                   "phone": phone,
-                                                  "address": address,
                                                   "confirm": false,
-                                                  "userName": name
+                                                  "userName": name,
+                                              "Prepare":false,
+                                              "todel":false,
                                                 }));
                                             Fluttertoast.showToast(
                                                 msg: "تم الاضافة الى السلة",
