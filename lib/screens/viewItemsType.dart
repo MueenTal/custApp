@@ -23,7 +23,7 @@ class _ViewItemsState extends State<ViewItems> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: Colors.yellow[600],
             title: Text(
               widget.name,
               style: TextStyle(color: Colors.white),
@@ -85,7 +85,7 @@ class _ViewItemsState extends State<ViewItems> {
         child: Container(
           height: 270,
           width: MediaQuery.of(context).size.width,
-          color: Colors.yellow[800],
+          color: Colors.yellow[600],
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

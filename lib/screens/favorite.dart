@@ -20,7 +20,7 @@ class _FavoriteState extends State<Favorite> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: Colors.yellow[600],
             title: Text(
               "المفضلة",
               style: TextStyle(color: Colors.white),
@@ -83,7 +83,7 @@ class _FavoriteState extends State<Favorite> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.yellow[800],
+                color: Colors.yellow[600],
               ),
               height: 150,
               width: MediaQuery.of(context).size.width,

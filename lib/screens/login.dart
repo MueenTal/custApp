@@ -86,22 +86,7 @@ class _LoginState extends State<Login> {
                           SizedBox(
                             height: 50,
                           ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.only(
-                                top: 30, left: 20, right: 15, bottom: 15),
-                            child: InkWell(
-                              onTap: () {},
-                              child: Text(
-                                "هل نسيت كلمة المرور ؟",
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.underline),
-                              ),
-                            ),
-                          ),
+
                           Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,

@@ -45,7 +45,7 @@ class _ProfileState extends State<Profile> {
           backgroundColor: Colors.white,
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: Colors.yellow[600],
             title: Text(
               "الصفحة الشخصية",
               style: TextStyle(color: Colors.white),
@@ -291,7 +291,7 @@ class _ProfileState extends State<Profile> {
                           }
                         },
                         elevation: 5.0,
-                        color: Colors.yellow[800],
+                        color: Colors.yellow[600],
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                         child: Text(

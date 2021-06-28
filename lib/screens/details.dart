@@ -54,7 +54,7 @@ class _DetailsState extends State<Details> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: Colors.yellow[600],
             title: Text(
               "تفاصيل الوجبة",
               style: TextStyle(color: Colors.white),
@@ -94,7 +94,7 @@ class _DetailsState extends State<Details> {
                       SmoothStarRating(
                         rating: widget.starts,
                         isReadOnly: true,
-                        color: Colors.yellow[800],
+                        color: Colors.yellow[600],
                         size: 25,
                         filledIconData: Icons.star,
                         halfFilledIconData: Icons.star_half,
@@ -102,7 +102,7 @@ class _DetailsState extends State<Details> {
                         starCount: 5,
                         allowHalfRating: true,
                         spacing: 2.0,
-                        borderColor: Colors.yellow[700],
+                        borderColor: Colors.yellow[600],
                       )
                     ],
                   ),

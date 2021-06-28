@@ -19,7 +19,7 @@ class _CardState extends State<CardScreen> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: Colors.yellow[600],
             title: Text(
               "السلة",
               style: TextStyle(color: Colors.white),
@@ -70,7 +70,7 @@ class _CardState extends State<CardScreen> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              color: Colors.yellow[800],
+              color: Colors.yellow[600],
             ),
             height: 150,
             width: MediaQuery.of(context).size.width,
@@ -170,7 +170,7 @@ class _CardState extends State<CardScreen> {
         Row(
           children: [
             IconButton(
-                icon: Icon(Icons.delete_forever_outlined),
+                icon: Icon(Icons.delete),
                 onPressed: () async {
                   await FirebaseFirestore.instance
                       .collection('card')
@@ -193,7 +193,7 @@ class _CardState extends State<CardScreen> {
                     .doc(id)
                     .update({
                   "confirm": true,
-                  "date": DateTime.now().toString().substring(0, 16),
+                  "date": DateTime.now().toString().substring(0, 16)
                 });
 
                 Fluttertoast.showToast(

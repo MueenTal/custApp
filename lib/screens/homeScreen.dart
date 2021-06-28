@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             appBar: AppBar(
               centerTitle: true,
-              backgroundColor: Colors.yellow[800],
+              backgroundColor: Colors.yellow[600],
               title: Text(
                 "الصفحة الرئيسية",
                 style: TextStyle(color: Colors.white),
@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 40,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            color: Colors.yellow[800]),
+            color: Colors.yellow[600]),
         child: FlatButton(
             child: Text(
               name,
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           height: 270,
           width: MediaQuery.of(context).size.width,
-          color: Colors.yellow[800],
+          color: Colors.yellow[600],
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
